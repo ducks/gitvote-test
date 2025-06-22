@@ -1,9 +1,9 @@
 {
   "index": 0,
-  "timestamp": "2025-06-22T20:48:18.938531773Z",
+  "timestamp": "2025-06-22T20:51:09.197399525Z",
   "choice": "purple",
   "voter": "Jake Goldsborough <jake.goldsborough@pm.me>",
   "prev_hash": "GENESIS",
-  "hash": "2e19d99679b016fb7620ef0eb778c3c68bbd7b95e39df24fc12956ae68749f58",
+  "hash": "e4613719e562248b5af723620be053855deccde949193f8a2d89281b05feda26",
   "signature": "a749055472480370ee33600745ea68cb3c43ba1ce86e5991003f22b7fcf56b8c"
 }
