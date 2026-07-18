@@ -1,0 +1,39 @@
+{
+  "protocol_version": "20260717-draft-1",
+  "election_id": "github.com/ducks/gitvote-test/color-vote-2026",
+  "title": "GitVote signed color vote demo",
+  "opens_at": "2026-07-18T00:00:00Z",
+  "closes_at": "2027-07-18T00:00:00Z",
+  "choices": [
+    {
+      "id": "purple",
+      "label": "Purple"
+    },
+    {
+      "id": "blue",
+      "label": "Blue"
+    },
+    {
+      "id": "green",
+      "label": "Green"
+    }
+  ],
+  "eligible_voters": [
+    {
+      "key_id": "sha256:3cd8a36bc203eedb32b4e74e6b2cf64f462e581fb02e87797e28bf9a91b6d9d2",
+      "public_key": "2B8-BjOUkR8oasdW4BQ-NC-huxT8UVNsAxnQKdfcBuY",
+      "display_name": "Alice Demo Voter"
+    },
+    {
+      "key_id": "sha256:a32b1fb89de861fe7bc9622ed0282ba1efd660355fbdd373683878d8d29db3a7",
+      "public_key": "22XUAMuNc-uAX_4unMmIsizbYPizdifzzXyqk6u6EkQ",
+      "display_name": "Bob Demo Voter"
+    }
+  ],
+  "administrator": {
+    "key_id": "sha256:d74dc00568e26afe95b3574b759d477efdcc82ec59c8d59ab2ee7da19086294f",
+    "public_key": "A1rZWn_rwsUX0Ig9XLypijVcUiwuc0MloA3Nv1ucYE0",
+    "display_name": "GitVote Test Administrator"
+  },
+  "signature": "Hq6byxtTrhEQKvvDrcPrQc63CeiEvuVdbLKbhp1Mg4h9w8XhWj6ZuVjsVT4UWx3PwtQbBhgt4bLyOryL_GlyDA"
+}

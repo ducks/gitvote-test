@@ -1,61 +1,42 @@
-name: GitVote Voting Workflow
-
-permissions:
-  contents: write
-  pull-requests: write
+name: GitVote Ballot Validation
 
 on:
   pull_request:
     branches:
-      - proposal/**
+      - "proposal/**"
 
-  push:
-    branches:
-      - proposal/**
+permissions:
+  contents: read
+
+concurrency:
+  group: gitvote-${{ github.event.pull_request.base.ref }}
+  cancel-in-progress: false
 
 jobs:
-  validate-vote:
-    name: Validate Votes on PR
+  validate-ballot:
+    name: Validate signed ballot
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3  # checks out the voting repo itself
+      - name: Check out the proposed repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
-    - name: Clone gitvote source repo
-      run: git clone https://github.com/ducks/gitvote.git
+      - name: Build pinned GitVote
+        env:
+          GITVOTE_COMMIT: b2879a845254b462e7e43fff1fdc63acdde10ac6
+        run: |
+          git clone https://github.com/ducks/gitvote.git "$RUNNER_TEMP/gitvote"
+          git -C "$RUNNER_TEMP/gitvote" checkout "$GITVOTE_COMMIT"
+          cargo build --locked --release \
+            --manifest-path "$RUNNER_TEMP/gitvote/Cargo.toml"
 
-    - name: Build gitvote from source
-      run: |
-        cd gitvote
-        cargo build --release
-
-    - name: Run vote validation
-      run: |
-        ./gitvote/target/release/gitvote validate
-
-  build-chain:
-    name: Build Chain After Merge
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Clone gitvote source repo
-      run: git clone https://github.com/ducks/gitvote.git
-
-    - name: Build gitvote from source
-      run: |
-        cd gitvote
-        cargo build --release
-
-    - name: Build chain from votes
-      run: |
-        ./gitvote/target/release/gitvote build-chain
-
-    - name: Commit updated chain
-      run: |
-        git config user.name "gitvote-bot"
-        git config user.email "bot@example.com"
-        git add blocks/
-        git commit -m "Update chain after merge" || echo "No changes"
-        git push
-
+      - name: Validate the proposed ballot
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          "$RUNNER_TEMP/gitvote/target/release/gitvote" validate-pr \
+            --base "$BASE_SHA" \
+            --head "$HEAD_SHA"

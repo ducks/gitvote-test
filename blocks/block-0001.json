@@ -1,9 +1,0 @@
-{
-  "index": 1,
-  "timestamp": "2025-06-22T21:38:37.885525623Z",
-  "choice": "blue",
-  "voter": "Alice Voter <alice@example.com>",
-  "prev_hash": "6560e9da669a54f47348cf8ee8ab0dc8ae0ae8823735671fe6aae8d5440d64c7",
-  "hash": "e7a36ec61c222fbd2e3a4ead99361c547e57d88116d9f7ad8cb7d6ec066b4caf",
-  "signature": "16f457e7c18e5273018013aeec966ddcc47d533d9c53d3d9d7d794acfe95bf7b"
-}
