@@ -3,7 +3,7 @@ name: GitVote Ballot Validation
 on:
   pull_request:
     branches:
-      - "proposal/**"
+      - main
 
 permissions:
   contents: read

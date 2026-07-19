@@ -32,7 +32,7 @@ export GITVOTE_BIN="$PWD/target/release/gitvote"
 
 ## Validate the Election
 
-From this repository's proposal branch:
+From this repository's `main` branch:
 
 ```bash
 "$GITVOTE_BIN" validate
@@ -54,16 +54,15 @@ git switch -c vote/alice
 git push -u origin vote/alice
 ```
 
-Open a pull request targeting `proposal/001-color-vote`. CI runs the equivalent
-of:
+Open a pull request targeting `main`. CI runs the equivalent of:
 
 ```bash
 "$GITVOTE_BIN" validate-pr \
-  --base <current-proposal-commit> \
+  --base <current-main-commit> \
   --head <proposed-vote-commit>
 ```
 
-After Alice's ballot is merged, repeat from the updated proposal branch with
+After Alice's ballot is merged, repeat from the updated `main` branch with
 `../gitvote-test-keys/bob.key`. A voter key can have only one accepted ballot.
 
 ## Audit After Merge
