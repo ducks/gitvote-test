@@ -1,0 +1,9 @@
+{
+  "protocol_version": "20260717-draft-1",
+  "election_id": "github.com/ducks/gitvote-test/color-vote-2026",
+  "manifest_hash": "sha256:2dae43d78ee70097ba6df6f4680660b4313843e3e50bd28d428ae6f0d4c16ceb",
+  "voter_key_id": "sha256:3cd8a36bc203eedb32b4e74e6b2cf64f462e581fb02e87797e28bf9a91b6d9d2",
+  "choice": "purple",
+  "nonce": "Of0mczGUMCoAK4TqJcFFaA",
+  "signature": "S7_TrbfUqb5UdGTMYw3Hs0DjJGomf9kElyYgYtHTDYTNKrutJbHOkmc6an2BanCUoRbMarl5G1j5Wd5M0eDnCw"
+}
